@@ -65,7 +65,7 @@ Sources treated as identical: a dam, a tap and a storage tank fail and recover i
 
 << Methods >>
 
-- +GetProfile(): String
+- +DisplayProfile(): String
 
 ### << Abstract >> WaterSource
 
