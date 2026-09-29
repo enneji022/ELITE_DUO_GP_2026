@@ -1,0 +1,154 @@
+# SDG6: Ensure availability and sustainable management of water and sanitation for all
+
+## What is it about?
+
+SDG 6, "Clean Water and Sanitation," is the UN goal to ensure availability and sustainable management of water and sanitation for all by 2030. It covers universal access to safe, affordable drinking water and to adequate sanitation and hygiene, along with improving water quality by reducing pollution and untreated wastewater. It also calls for using water more efficiently, managing water resources in an integrated way, and protecting water-related ecosystems such as rivers, wetlands and lakes. It has a strong focus on the needs of women, girls and people in vulnerable situations. It also promotes international cooperation and local community participation in water and sanitation management.
+
+## What we are targeting
+
+SDG 6 has eight targets: six outcome targets (6.1 to 6.6) and two means-of-implementation targets (6.a and 6.b).
+
+**6.1 - Safe and Affordable Drinking Water**
+By 2030, universal and equitable access to safe, affordable drinking water for all.
+
+**6.2 - Sanitation and Hygiene**
+By 2030, access to adequate and equitable sanitation and hygiene for all, ending open defecation, with special attention to women, girls and people in vulnerable situations.
+
+**6.3 - Water Quality**
+By 2030, improve water quality by reducing pollution, ending dumping, minimizing hazardous chemicals, halving untreated wastewater, and increasing recycling and safe reuse.
+
+**6.4 - Water-Use Efficiency**
+By 2030, substantially increase water-use efficiency across all sectors and ensure sustainable withdrawals and supply of freshwater, to address water scarcity and reduce the number of people suffering from it.
+
+**6.5 - Integrated Water Resources Management**
+By 2030, implement integrated water resources management at all levels, including cooperation across borders where appropriate.
+
+**6.6 - Protect Water-Related Ecosystems**
+By 2020, protect and restore water-related ecosystems such as mountains, forests, wetlands, rivers, aquifers and lakes.
+
+**6.a - International Cooperation and Capacity-Building**
+By 2030, expand international cooperation and support to developing countries in water and sanitation activities, such as water harvesting, desalination, efficiency, wastewater treatment and recycling.
+
+**6.b - Local Community Participation**
+Support and strengthen the participation of local communities in improving water and sanitation management.
+
+## Specifics
+
+The specific problem is how a community manages a limited, shared water supply so that it stays available and reaches everyone fairly.
+
+At the SDG level, the problem is that billions of people lack reliable access to safe water, and where supply exists it is often scarce, unevenly shared, or interrupted by breakdowns. Our app doesn't try to solve all of that. It takes the management side of it, which breaks into four parts:
+
+No visibility: nobody can easily see how much water is left in each source or which sources are usable right now.
+Unfair distribution: with no limits, some people can draw far more than their share and leave others without.
+Slow response to faults: a broken pipe or pump goes unreported or unfixed, so scarce water is lost and people are cut off.
+Sources treated as identical: a dam, a tap and a storage tank fail and recover in different ways, and simple tracking ignores that.
+
+## Classes
+
+### Household
+
+<< Attributes >>
+
+- \_HouseholdID: Integer
+- IDCounter: Integer
+- \_Tap: Tap
+- \_AmountUsed: Integer
+
+<< Constructor >>
+
+- +Household()
+
+<< Property >>
+
+- HouseholdID(): Integer {readonly}
+- AmountUsed(): Integer
+
+<< Methods >>
+
+- +GetProfile(): String
+
+### << Abstract >> WaterSource
+
+<< Attributes >>
+
+- -\_SourceID: Integer
+- -IDCounter: Integer
+- -\_AvailableAmount: Integer
+- -\_MaxCapacity: Integer
+- -\_IsFaulty: Boolean
+
+<< Constructor >>
+
+- +WaterSource(MaxCapacity: Integer)
+
+<< Property >>
+
+- +SourceID(): Integer {readonly}
+- +AvailableAmount(): Integer
+- +MaxCapacity(): Integer {readonly}
+- +IsFaulty(): Boolean
+
+<< Methods >>
+
+- +CheckAvailability(): Integer
+- +Refill(Amount: Integer): Void
+- +UseWater(Amount: Integer): Void
+- +ReportFault(): Void
+- +FixFault(): Void
+- +GetStatus(): String
+
+### Dam
+
+<< Attributes >>
+
+- -\_MaxUsableAmount: Integer
+- << Constructor >>
+- +Dam(MaxUsableAmount: Integer)
+
+  << Property >>
+  << Methods >>
+
+- +CheckAvailability(): Integer
+- +Refill(Amount: Integer): Void
+
+### Borehole
+
+<< Attributes >>
+
+- -\_RefillRate: Integer
+
+<< Constructor >>
+
+- +Borehole()
+
+<< Property >>
+
+- +RefillRate(): Integer
+
+<< Methods >>
+
+- +CheckAvailability(): Integer
+- +Refill(Amount: Integer): Void
+
+### Tap
+
+<< Attributes >>
+
+- -\_MaxUsableAmount: Integer
+- << Constructor >>
+- +Tap(MaxUsableAmount: Integer)
+
+  << Property >>
+  << Methods >>
+
+- +CheckAvailability(): Integer
+- +Refill(Amount: Integer): Void
+
+### Implementation file
+
+#### IUsageLimited
+
+- MaxUsableAmount: Integer
+- CanUseMore(): Boolean
+
+## How would the app work
