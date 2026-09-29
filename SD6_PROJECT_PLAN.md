@@ -146,9 +146,9 @@ Sources treated as identical: a dam, a tap and a storage tank fail and recover i
 
 ### Implementation file
 
-#### IUsageLimited
+#### IUsageLimitable
 
-- MaxUsableAmount: Integer
+- MaxUsableAmount(): Integer {readonly property}
 - CanUseMore(): Boolean
 
 ## How would the app work
