@@ -134,6 +134,7 @@ Sources treated as identical: a dam, a tap and a storage tank fail and recover i
 
 << Attributes >>
 
+- -\_Dam: Dam
 - -\_MaxUsableAmount: Integer
 - << Constructor >>
 - +Tap(MaxUsableAmount: Integer)
@@ -152,3 +153,7 @@ Sources treated as identical: a dam, a tap and a storage tank fail and recover i
 - CanUseMore(): Boolean
 
 ## How would the app work
+
+- Initialise dams
+- Record the households
+- Always show dam info in a text box
