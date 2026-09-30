@@ -52,7 +52,8 @@ Sources treated as identical: a dam, a tap and a storage tank fail and recover i
 - \_HouseholdID: Integer
 - IDCounter: Integer
 - \_Tap: Tap
-- \_AmountUsed: Integer
+- \_AmountUsedInTaps: Integer
+- \_AmountUsedInBoreholes: Integer
 
 << Constructor >>
 
@@ -62,15 +63,14 @@ Sources treated as identical: a dam, a tap and a storage tank fail and recover i
 
 - HouseholdID(): Integer {readonly}
 - Tap(): Tap
-- AmountUsed(): Integer
+- AmountUsedInTaps(): Integer
+- AmountUsedInBoreholes: Integer
 
 << Methods >>
 
 - -CanUseMoreWater(Amount: Integer): Boolean
 - +UseTapWater(Amount: Integer): Void
-- +UseBoreholeWater(Borehole: Borehole): Void
-- +ReportFaultyTap(): Void
-- -GetTapCondition(): String
+- +UseBoreholeWater(Borehole: Borehole, Amount: Integer): Void
 - +DisplayProfile(): String
 
 ### << Abstract >> WaterSource
@@ -80,27 +80,20 @@ Sources treated as identical: a dam, a tap and a storage tank fail and recover i
 - -\_SourceID: Integer
 - -IDCounter: Integer
 - -\_AvailableAmount: Integer
-- -\_IsFaulty: Boolean
 
 << Constructor >>
 
-- +WaterSource()
+- +WaterSource(InitialAvailableAmount: Integer)
 
 << Property >>
 
 - +SourceID(): Integer {readonly}
 - +AvailableAmount(): Integer
-- +MaxCapacity(): Integer {readonly}
-- +IsFaulty(): Boolean
 
 << Methods >>
 
 - +CheckAvailability(): String
-- +Refill(Amount: Integer): Void
 - +UseWater(Amount: Integer): Void
-- +ReportFault(): Void
-- +FixFault(): Void
-- +GetStatus(): String
 
 ### Dam
 
@@ -108,14 +101,19 @@ Sources treated as identical: a dam, a tap and a storage tank fail and recover i
 
 - -\_MaxCapacity: Integer
 - -\_MaxUsableAmount: Integer
+- -WaterFlowRate: Integer
 - << Constructor >>
-- +Dam(MaxUsableAmount: Integer)
+- +Dam(MaxCapacity: Integer, MaxUsableAmount: Integer, WaterFlowRate: Integer)
 
-  << Property >>
-  << Methods >>
+<< Property >>
+
+- MaxCapacity(): Integer {readonly}
+- MaxUsableAmount: Integer {readonly}
+- WaterFlowRate(): Integer {readonly}
+
+<< Methods >>
 
 - +CheckAvailability(): String
-- +Refill(Amount: Integer): Void
 
 ### Borehole
 
@@ -134,7 +132,6 @@ Sources treated as identical: a dam, a tap and a storage tank fail and recover i
 << Methods >>
 
 - +CheckAvailability(): String
-- +Refill(Amount: Integer): Void
 
 ### Tap
 
@@ -146,11 +143,12 @@ Sources treated as identical: a dam, a tap and a storage tank fail and recover i
 - +Tap()
 
 << Property >>
+
 - Dam(): Dam
+
 << Methods >>
 
 - +CheckAvailability(): String
-- +Refill(Amount: Integer): Void
 
 ### Implementation file
 
@@ -159,8 +157,16 @@ Sources treated as identical: a dam, a tap and a storage tank fail and recover i
 - MaxUsableAmount(): Integer {readonly property}
 - CanUseMore(): Boolean
 
+#### IRefillable
+- RefillWater(): Void
+
 ## How would the app work
 
-- Initialise dams
-- Record the households
-- Always show dam info in a text box
+- For the purpose of the project we will be considering a week long timeframe. Limtiting how much water households use in their taps and how much water gets depleted in the dam. However there will be boreholes which have a refill rate so if overused may run out and households may have to wait for them to refill. For simulating the days we will add a button which moves the day to the next and after seven days resets to a new week. We would also have the dams listed and their current capcity same with the boreholes. And for the households you have request to see the information but the dam updates each time there is usage so it is alwasy available to see. We can also have the households show whenever we want to use it so one see how much capacity usage they have left.
+
+## Interface
+
+- New Day : btnNewDay [Changes day to the next]
+- Use InHouse Water: btnHouseWater [Simply allows the household to use the water coming from their tap provided they have not reached their limit for the week]
+- Use Borehole Water: btnUseBorehole [Simply allows household to use water from the borehole provided the borehole usage rate is not zero]
+- Display Household Profile: btnHouseProfile [Shows the household Id and how much water they have used in their taps, how much water they have used from boreholes]

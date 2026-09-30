@@ -14,13 +14,15 @@ Public Class Household
     Private _HouseholdID As Integer
     Private Shared IDCounter As Integer
     Private _Tap As Tap
-    Private _AmountUsed As Integer
+    Private _AmountUsedInTaps As Integer
+    Private _AMountUsedInBoreholes As Integer
 
     Public Sub New(Tap As Tap)
         IDCounter += 1
         _HouseholdID = IDCounter
         _Tap = Tap
-        _AmountUsed = 0
+        _AmountUsedInTaps = 0
+        _AMountUsedInBoreholes = 0
     End Sub
 
     Public ReadOnly Property HouseholdID As Integer
@@ -38,27 +40,32 @@ Public Class Household
         End Set
     End Property
 
-    Public Property AmountUsed As Integer
+    Public Property AmountUsedInTaps As Integer
         Get
-            Return _AmountUsed
+            Return _AmountUsedInTaps
         End Get
         Set(value As Integer)
-            _AmountUsed = value
+            _AmountUsedInTaps = value
+        End Set
+    End Property
+
+    Public Property AmountUsedInBoreholes As Integer
+        Get
+            Return _AMountUsedInBoreholes
+        End Get
+        Set(value As Integer)
+            _AMountUsedInBoreholes = value
         End Set
     End Property
 
     'Returns True if household can still use the specified amount of water in their tap
     Private Function CanUseMoreWater(Amount As Integer) As Boolean
-        If Amount < _Tap.AvailableAmount And Not _Tap.IsFaulty Then
-            Return True
-        End If
-
-        Return False
+        Return Amount < _Tap.AvailableAmount
     End Function
 
     Public Sub UseTapWater(ByVal Amount As Integer)
         If CanUseMoreWater(Amount) Then
-            _AmountUsed += Amount
+            _AmountUsedInTaps += Amount
         End If
     End Sub
 
@@ -66,25 +73,12 @@ Public Class Household
         'Don't forget to implement this function
     End Sub
 
-    Private Function GetTapCondition() As String
-        If Me.Tap.IsFaulty Then
-            Return "Broken!"
-        End If
-
-        Return "Good!"
-    End Function
-
     Public Function DisplayProfile() As String
         Dim HouseholdProfile As String
 
         HouseholdProfile = "HouseholdID: " & Me.HouseholdID &
-            vbNewLine & Me.Tap.CheckAvailability() &
-        vbNewLine "Tap Condition: " & GetTapCondition()
+            vbNewLine & Me.Tap.CheckAvailability()
 
         Return HouseholdProfile
     End Function
-
-    Public Sub ReportFaultyTap()
-        Me.Tap.IsFaulty = True
-    End Sub
 End Class
