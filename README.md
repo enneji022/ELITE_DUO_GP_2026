@@ -1,1 +1,1 @@
-# ELITE_DUO_GP_2026
+# ELITE DUO Group Practical 2026
