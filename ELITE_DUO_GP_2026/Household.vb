@@ -78,9 +78,8 @@ Public Class Household
         Dim HouseholdProfile As String
 
         HouseholdProfile = "HouseholdID: " & Me.HouseholdID &
-            vbNewLine & "Amount Used: " & Me.AmountUsed &
-            "Amount Remaining: " & _Tap.AvailableAmount &
-            vbNewLine "Tap Condition: " & GetTapCondition()
+            vbNewLine & Me.Tap.CheckAvailability() &
+        vbNewLine "Tap Condition: " & GetTapCondition()
 
         Return HouseholdProfile
     End Function

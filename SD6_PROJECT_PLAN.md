@@ -84,7 +84,7 @@ Sources treated as identical: a dam, a tap and a storage tank fail and recover i
 
 << Constructor >>
 
-- +WaterSource(MaxCapacity: Integer)
+- +WaterSource()
 
 << Property >>
 
@@ -95,7 +95,7 @@ Sources treated as identical: a dam, a tap and a storage tank fail and recover i
 
 << Methods >>
 
-- +CheckAvailability(): Integer
+- +CheckAvailability(): String
 - +Refill(Amount: Integer): Void
 - +UseWater(Amount: Integer): Void
 - +ReportFault(): Void
@@ -114,7 +114,7 @@ Sources treated as identical: a dam, a tap and a storage tank fail and recover i
   << Property >>
   << Methods >>
 
-- +CheckAvailability(): Integer
+- +CheckAvailability(): String
 - +Refill(Amount: Integer): Void
 
 ### Borehole
@@ -133,7 +133,7 @@ Sources treated as identical: a dam, a tap and a storage tank fail and recover i
 
 << Methods >>
 
-- +CheckAvailability(): Integer
+- +CheckAvailability(): String
 - +Refill(Amount: Integer): Void
 
 ### Tap
@@ -141,14 +141,15 @@ Sources treated as identical: a dam, a tap and a storage tank fail and recover i
 << Attributes >>
 
 - -\_Dam: Dam
-- -\_MaxUsableAmount: Integer
+- -MaxUsableAmount: Integer {shared}
 - << Constructor >>
-- +Tap(MaxUsableAmount: Integer)
+- +Tap()
 
-  << Property >>
-  << Methods >>
+<< Property >>
+- Dam(): Dam
+<< Methods >>
 
-- +CheckAvailability(): Integer
+- +CheckAvailability(): String
 - +Refill(Amount: Integer): Void
 
 ### Implementation file
