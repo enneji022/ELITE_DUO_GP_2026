@@ -49,11 +49,11 @@ Public Class Household
 
     'Returns True if household can still use the specified amount of water in their tap
     Private Function CanUseMoreWater(Amount As Integer) As Boolean
-        If Amount > _Tap.AvailableAmount Then
-            Return False
+        If Amount < _Tap.AvailableAmount And Not _Tap.IsFaulty Then
+            Return True
         End If
 
-        Return True
+        Return False
     End Function
 
     Public Sub UseTapWater(ByVal Amount As Integer)
@@ -66,12 +66,26 @@ Public Class Household
         'Don't forget to implement this function
     End Sub
 
+    Private Function GetTapCondition() As String
+        If Me.Tap.IsFaulty Then
+            Return "Broken!"
+        End If
+
+        Return "Good!"
+    End Function
+
     Public Function DisplayProfile() As String
         Dim HouseholdProfile As String
 
-        HouseholdProfile = "HouseholdID: " & Me.HouseholdID & vbNewLine & "Amount Used: " & Me.AmountUsed &
-            "Amount Remaining: " & _Tap.AvailableAmount & vbNewLine
+        HouseholdProfile = "HouseholdID: " & Me.HouseholdID &
+            vbNewLine & "Amount Used: " & Me.AmountUsed &
+            "Amount Remaining: " & _Tap.AvailableAmount &
+            vbNewLine "Tap Condition: " & GetTapCondition()
 
         Return HouseholdProfile
     End Function
+
+    Public Sub ReportFaultyTap()
+        Me.Tap.IsFaulty = True
+    End Sub
 End Class

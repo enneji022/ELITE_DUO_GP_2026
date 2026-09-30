@@ -69,6 +69,8 @@ Sources treated as identical: a dam, a tap and a storage tank fail and recover i
 - -CanUseMoreWater(Amount: Integer): Boolean
 - +UseTapWater(Amount: Integer): Void
 - +UseBoreholeWater(Borehole: Borehole): Void
+- +ReportFaultyTap(): Void
+- -GetTapCondition(): String
 - +DisplayProfile(): String
 
 ### << Abstract >> WaterSource
@@ -78,7 +80,6 @@ Sources treated as identical: a dam, a tap and a storage tank fail and recover i
 - -\_SourceID: Integer
 - -IDCounter: Integer
 - -\_AvailableAmount: Integer
-- -\_MaxCapacity: Integer
 - -\_IsFaulty: Boolean
 
 << Constructor >>
@@ -105,6 +106,7 @@ Sources treated as identical: a dam, a tap and a storage tank fail and recover i
 
 << Attributes >>
 
+- -\_MaxCapacity: Integer
 - -\_MaxUsableAmount: Integer
 - << Constructor >>
 - +Dam(MaxUsableAmount: Integer)
