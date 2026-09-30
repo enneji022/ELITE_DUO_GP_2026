@@ -56,15 +56,19 @@ Sources treated as identical: a dam, a tap and a storage tank fail and recover i
 
 << Constructor >>
 
-- +Household()
+- +Household(Tap: Tap)
 
 << Property >>
 
 - HouseholdID(): Integer {readonly}
+- Tap(): Tap
 - AmountUsed(): Integer
 
 << Methods >>
 
+- -CanUseMoreWater(Amount: Integer): Boolean
+- +UseTapWater(Amount: Integer): Void
+- +UseBoreholeWater(Borehole: Borehole): Void
 - +DisplayProfile(): String
 
 ### << Abstract >> WaterSource
