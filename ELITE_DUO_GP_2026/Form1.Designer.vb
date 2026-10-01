@@ -182,10 +182,10 @@ Partial Class Form1
         'txtMaxTapUsage
         '
         Me.txtMaxTapUsage.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtMaxTapUsage.Location = New System.Drawing.Point(552, 86)
+        Me.txtMaxTapUsage.Location = New System.Drawing.Point(745, 86)
         Me.txtMaxTapUsage.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.txtMaxTapUsage.Name = "txtMaxTapUsage"
-        Me.txtMaxTapUsage.Size = New System.Drawing.Size(142, 30)
+        Me.txtMaxTapUsage.Size = New System.Drawing.Size(211, 30)
         Me.txtMaxTapUsage.TabIndex = 15
         '
         'lblTapMax
@@ -202,10 +202,10 @@ Partial Class Form1
         'txtDamMax
         '
         Me.txtDamMax.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtDamMax.Location = New System.Drawing.Point(745, 86)
+        Me.txtDamMax.Location = New System.Drawing.Point(543, 86)
         Me.txtDamMax.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.txtDamMax.Name = "txtDamMax"
-        Me.txtDamMax.Size = New System.Drawing.Size(211, 30)
+        Me.txtDamMax.Size = New System.Drawing.Size(151, 30)
         Me.txtDamMax.TabIndex = 17
         '
         'lblDamMax
