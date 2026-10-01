@@ -19,6 +19,7 @@ Public Class Form1
     Private AreaDam As Dam
     Private Boreholes() As Borehole
 
+    'Displays the Dam and Boreholes Capacity and Available Amount
     Private Sub DisplayWaterSourceProfiles(ByRef AreaDam As Dam, ByRef Boreholes() As Borehole, ByVal NumberOfBoreholes As Integer, ByVal DayNumber As Integer)
         Dim NumberOfWaterSources As Integer = NumberOfBoreholes + 1
         Dim WaterSources() As WaterSource
@@ -43,6 +44,7 @@ Public Class Form1
         MaximumDamCapacity = CInt(txtDamMax.Text)
 
         If NumberOfBoreholes > 0 And NumberOfHouseholds > 0 And MaximumTapUsage > 0 And MaximumDamCapacity > 0 And Not ProgramInitialised Then
+            'Initialising Program and Instantiating Dam, Households and Boreholes Objects
             ReDim Households(NumberOfHouseholds)
             ReDim Boreholes(NumberOfBoreholes)
 
@@ -89,18 +91,6 @@ Public Class Form1
         End If
     End Sub
 
-    Private Sub lblDamMax_Click(sender As Object, e As EventArgs) Handles lblDamMax.Click
-
-    End Sub
-
-    Private Sub lblBoreholes_Click(sender As Object, e As EventArgs) Handles lblBoreholes.Click
-
-    End Sub
-
-    Private Sub lblHouse_Click(sender As Object, e As EventArgs) Handles lblHouse.Click
-
-    End Sub
-
     Private Sub btnUseBorehole_Click(sender As Object, e As EventArgs) Handles btnUseBorehole.Click
         Dim HouseChoice As Integer = CInt(InputBox("Enter the House Choice. (1-" & Households.Length - 1 & ")"))
         Dim BoreholeChoice As Integer = CInt(InputBox("Enter the Borehole Choice. (1-" & Boreholes.Length - 1 & ")"))
@@ -123,6 +113,7 @@ Public Class Form1
     End Sub
 
     Private Sub btnNewDay_Click(sender As Object, e As EventArgs) Handles btnNewDay.Click
+        'Change the current day to the next one
         If CurrentDay = 7 Then
             CurrentDay = 1
             AreaDam.RefillWater()

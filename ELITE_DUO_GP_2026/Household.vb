@@ -47,8 +47,6 @@ Public Class Household
         End Set
     End Property
 
-
-    'Returns True if household can still use the specified amount of water in their tap
     Private Function CanUseMoreWater(Amount As Integer) As Boolean
         Return Amount < _Tap.AvailableAmount
     End Function

@@ -223,11 +223,11 @@ Partial Class Form1
         '
         Me.lblTitle.AutoSize = True
         Me.lblTitle.Font = New System.Drawing.Font("Microsoft Sans Serif", 12.0!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblTitle.Location = New System.Drawing.Point(447, 9)
+        Me.lblTitle.Location = New System.Drawing.Point(376, 9)
         Me.lblTitle.Name = "lblTitle"
-        Me.lblTitle.Size = New System.Drawing.Size(333, 29)
+        Me.lblTitle.Size = New System.Drawing.Size(475, 29)
         Me.lblTitle.TabIndex = 19
-        Me.lblTitle.Text = "WATER AND SANITATION "
+        Me.lblTitle.Text = "SUSTAINABLE WATER MANAGEMENT"
         '
         'Form1
         '
@@ -254,7 +254,7 @@ Partial Class Form1
         Me.Controls.Add(Me.btnNewDay)
         Me.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.Name = "Form1"
-        Me.Text = "Form1"
+        Me.Text = "Availability and Sustainable Water Management"
         Me.ResumeLayout(False)
         Me.PerformLayout()
 
