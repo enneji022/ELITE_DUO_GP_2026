@@ -153,9 +153,9 @@ Partial Class Form1
         Me.lblWaterSources.Location = New System.Drawing.Point(39, 247)
         Me.lblWaterSources.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.lblWaterSources.Name = "lblWaterSources"
-        Me.lblWaterSources.Size = New System.Drawing.Size(292, 25)
+        Me.lblWaterSources.Size = New System.Drawing.Size(281, 25)
         Me.lblWaterSources.TabIndex = 12
-        Me.lblWaterSources.Text = "Dams and Borehole Statuses"
+        Me.lblWaterSources.Text = "Dam and Borehole Statuses"
         '
         'txtHouse
         '
@@ -201,7 +201,7 @@ Partial Class Form1
         'txtDamMax
         '
         Me.txtDamMax.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtDamMax.Location = New System.Drawing.Point(614, 125)
+        Me.txtDamMax.Location = New System.Drawing.Point(839, 83)
         Me.txtDamMax.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.txtDamMax.Name = "txtDamMax"
         Me.txtDamMax.Size = New System.Drawing.Size(235, 30)

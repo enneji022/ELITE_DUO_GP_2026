@@ -47,7 +47,7 @@ Public Class Dam
         Dim Availability As String
         Availability = "Dam ID: " & Me.SourceID & vbNewLine &
                         "Max capacity: " & _MaxCapacity & vbNewLine &
-                        "Available amount: " & Me.AvailbleAmount & vbNewLine
+                        "Available amount: " & Me.AvailableAmount & vbNewLine
         Return Availability
     End Function
 

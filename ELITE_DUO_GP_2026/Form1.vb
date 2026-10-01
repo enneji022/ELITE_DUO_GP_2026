@@ -11,17 +11,29 @@ Option Infer Off
 ' **************************************************************************************************
 
 Public Class Form1
-    Private NumberOfHouseholds, NumberOfBoreholes, NumberOfWaterSources As Integer
+    Private NumberOfHouseholds, NumberOfBoreholes As Integer
     Private MaximumTapUsage, MaximumDamCapacity As Integer
     Private ProgramInitialised As Boolean = False
     Private CurrentDay As Integer
     Private Households() As Household
     Private AreaDam As Dam
     Private Boreholes() As Borehole
-    Private WaterSources() As WaterSource
 
-    Private Sub DisplayWaterSourceProfiles()
-        'Implement This
+    Private Sub DisplayWaterSourceProfiles(ByRef AreaDam As Dam, ByRef Boreholes() As Borehole, ByVal NumberOfBoreholes As Integer)
+        Dim NumberOfWaterSources As Integer = NumberOfBoreholes + 1
+        Dim WaterSources() As WaterSource
+
+        ReDim WaterSources(NumberOfWaterSources)
+        WaterSources(1) = AreaDam
+
+        For IWaterSource As Integer = 2 To WaterSources.Length - 1
+            WaterSources(IWaterSource) = Boreholes(IWaterSource - 1)
+        Next IWaterSource
+
+        txtWaterSources.Text = ""
+        For IWaterSource As Integer = 1 To WaterSources.Length - 1
+            txtWaterSources.Text &= WaterSources(IWaterSource).CheckAvailability() & vbNewLine
+        Next IWaterSource
     End Sub
 
     Private Sub btnInit_Click(sender As Object, e As EventArgs) Handles btnInit.Click
@@ -33,7 +45,6 @@ Public Class Form1
         If NumberOfBoreholes > 0 And NumberOfHouseholds > 0 And MaximumTapUsage > 0 And MaximumDamCapacity > 0 And Not ProgramInitialised Then
             ReDim Households(NumberOfHouseholds)
             ReDim Boreholes(NumberOfBoreholes)
-            NumberOfWaterSources = NumberOfBoreholes
 
             For IHouse As Integer = 1 To NumberOfHouseholds
                 Households(IHouse) = New Household(MaximumTapUsage, AreaDam)
@@ -47,14 +58,63 @@ Public Class Form1
             ProgramInitialised = True
             CurrentDay = 1
             MsgBox("Program Initialised Successfully!")
+            DisplayWaterSourceProfiles(AreaDam, Boreholes, Boreholes.Length - 1)
+        End If
+    End Sub
+
+    Private Sub btnHouseProfile_Click(sender As Object, e As EventArgs) Handles btnHouseProfile.Click
+        Dim HouseChoice As Integer = CInt(InputBox("Enter the House ID. (1-" & Households.Length - 1 & ")"))
+        If HouseChoice > 0 And HouseChoice <= Households.Length - 1 Then
+            txtHouse.Text = Households(HouseChoice).DisplayProfile()
+        Else
+            MsgBox("Invalid House Choice!")
+        End If
+    End Sub
+
+    Private Sub btnHouseWater_Click(sender As Object, e As EventArgs) Handles btnHouseWater.Click
+        Dim HouseChoice As Integer = CInt(InputBox("Enter the House ID. (1-" & Households.Length - 1 & ")"))
+        Dim Amount As Integer = CInt(InputBox("Enter the amount of water."))
+
+        If HouseChoice > 0 And HouseChoice <= Households.Length - 1 Then
+            If Amount > 0 Then
+                Households(HouseChoice).UseTapWater(Amount)
+                DisplayWaterSourceProfiles(AreaDam, Boreholes, Boreholes.Length - 1)
+            Else
+                MsgBox("Invalid Amount Entered!")
+            End If
+        Else
+            MsgBox("Invalid House ID!")
+        End If
+    End Sub
+
+    Private Sub btnUseBorehole_Click(sender As Object, e As EventArgs) Handles btnUseBorehole.Click
+        Dim HouseChoice As Integer = CInt(InputBox("Enter the House ID. (1-" & Households.Length - 1 & ")"))
+        Dim BoreholeChoice As Integer = CInt(InputBox("Enter the Borehole ID. (1-" & Boreholes.Length - 1 & ")"))
+        Dim Amount As Integer = CInt(InputBox("Enter the amount of water."))
+
+        If HouseChoice > 0 And HouseChoice <= Households.Length - 1 Then
+            If Amount > 0 Then
+                If BoreholeChoice > 0 And BoreholeChoice <= Boreholes.Length - 1 Then
+                    Households(HouseChoice).UseBoreholeWater(Boreholes(BoreholeChoice), Amount)
+                    DisplayWaterSourceProfiles(AreaDam, Boreholes, Boreholes.Length - 1)
+                Else
+                    MsgBox("Invalid Borehole ID!")
+                End If
+            Else
+                MsgBox("Invalid Amount Entered!")
+            End If
+        Else
+            MsgBox("Invalid House ID!")
         End If
     End Sub
 
     Private Sub btnNewDay_Click(sender As Object, e As EventArgs) Handles btnNewDay.Click
         If CurrentDay = 7 Then
             CurrentDay = 1
+            DisplayWaterSourceProfiles(AreaDam, Boreholes, Boreholes.Length - 1)
         Else
             CurrentDay += 1
+            DisplayWaterSourceProfiles(AreaDam, Boreholes, Boreholes.Length - 1)
         End If
     End Sub
 End Class
