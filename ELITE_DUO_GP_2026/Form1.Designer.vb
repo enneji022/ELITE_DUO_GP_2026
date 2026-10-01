@@ -37,14 +37,17 @@ Partial Class Form1
         Me.lblWaterSources = New System.Windows.Forms.Label()
         Me.txtHouse = New System.Windows.Forms.TextBox()
         Me.lblHouse = New System.Windows.Forms.Label()
+        Me.txtMaxTapUsage = New System.Windows.Forms.TextBox()
+        Me.lblTapMax = New System.Windows.Forms.Label()
         Me.SuspendLayout()
         '
         'btnNewDay
         '
         Me.btnNewDay.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnNewDay.Location = New System.Drawing.Point(554, 295)
+        Me.btnNewDay.Location = New System.Drawing.Point(831, 454)
+        Me.btnNewDay.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.btnNewDay.Name = "btnNewDay"
-        Me.btnNewDay.Size = New System.Drawing.Size(218, 34)
+        Me.btnNewDay.Size = New System.Drawing.Size(327, 52)
         Me.btnNewDay.TabIndex = 0
         Me.btnNewDay.Text = "New Day"
         Me.btnNewDay.UseVisualStyleBackColor = True
@@ -52,9 +55,10 @@ Partial Class Form1
         'btnHouseWater
         '
         Me.btnHouseWater.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnHouseWater.Location = New System.Drawing.Point(554, 143)
+        Me.btnHouseWater.Location = New System.Drawing.Point(831, 220)
+        Me.btnHouseWater.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.btnHouseWater.Name = "btnHouseWater"
-        Me.btnHouseWater.Size = New System.Drawing.Size(218, 34)
+        Me.btnHouseWater.Size = New System.Drawing.Size(327, 52)
         Me.btnHouseWater.TabIndex = 1
         Me.btnHouseWater.Text = "Use InHouse Water"
         Me.btnHouseWater.UseVisualStyleBackColor = True
@@ -62,9 +66,10 @@ Partial Class Form1
         'btnUseBorehole
         '
         Me.btnUseBorehole.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnUseBorehole.Location = New System.Drawing.Point(554, 221)
+        Me.btnUseBorehole.Location = New System.Drawing.Point(831, 340)
+        Me.btnUseBorehole.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.btnUseBorehole.Name = "btnUseBorehole"
-        Me.btnUseBorehole.Size = New System.Drawing.Size(218, 34)
+        Me.btnUseBorehole.Size = New System.Drawing.Size(327, 52)
         Me.btnUseBorehole.TabIndex = 2
         Me.btnUseBorehole.Text = "Use Borehole Water"
         Me.btnUseBorehole.UseVisualStyleBackColor = True
@@ -72,9 +77,10 @@ Partial Class Form1
         'btnHouseProfile
         '
         Me.btnHouseProfile.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnHouseProfile.Location = New System.Drawing.Point(281, 86)
+        Me.btnHouseProfile.Location = New System.Drawing.Point(402, 118)
+        Me.btnHouseProfile.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.btnHouseProfile.Name = "btnHouseProfile"
-        Me.btnHouseProfile.Size = New System.Drawing.Size(218, 34)
+        Me.btnHouseProfile.Size = New System.Drawing.Size(327, 52)
         Me.btnHouseProfile.TabIndex = 3
         Me.btnHouseProfile.Text = "Display Household Profile"
         Me.btnHouseProfile.UseVisualStyleBackColor = True
@@ -82,9 +88,10 @@ Partial Class Form1
         'btnInit
         '
         Me.btnInit.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.btnInit.Location = New System.Drawing.Point(623, 12)
+        Me.btnInit.Location = New System.Drawing.Point(934, 18)
+        Me.btnInit.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.btnInit.Name = "btnInit"
-        Me.btnInit.Size = New System.Drawing.Size(165, 41)
+        Me.btnInit.Size = New System.Drawing.Size(248, 63)
         Me.btnInit.TabIndex = 4
         Me.btnInit.Text = "Initialise Program"
         Me.btnInit.UseVisualStyleBackColor = True
@@ -93,9 +100,10 @@ Partial Class Form1
         '
         Me.lblDams.AutoSize = True
         Me.lblDams.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblDams.Location = New System.Drawing.Point(246, 12)
+        Me.lblDams.Location = New System.Drawing.Point(369, 18)
+        Me.lblDams.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.lblDams.Name = "lblDams"
-        Me.lblDams.Size = New System.Drawing.Size(123, 16)
+        Me.lblDams.Size = New System.Drawing.Size(172, 25)
         Me.lblDams.TabIndex = 5
         Me.lblDams.Text = "Number of Dams"
         '
@@ -103,9 +111,10 @@ Partial Class Form1
         '
         Me.lblBoreholes.AutoSize = True
         Me.lblBoreholes.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblBoreholes.Location = New System.Drawing.Point(426, 12)
+        Me.lblBoreholes.Location = New System.Drawing.Point(639, 18)
+        Me.lblBoreholes.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.lblBoreholes.Name = "lblBoreholes"
-        Me.lblBoreholes.Size = New System.Drawing.Size(154, 16)
+        Me.lblBoreholes.Size = New System.Drawing.Size(214, 25)
         Me.lblBoreholes.TabIndex = 6
         Me.lblBoreholes.Text = "Number of Boreholes"
         '
@@ -113,79 +122,109 @@ Partial Class Form1
         '
         Me.lblHouseholds.AutoSize = True
         Me.lblHouseholds.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblHouseholds.Location = New System.Drawing.Point(26, 12)
+        Me.lblHouseholds.Location = New System.Drawing.Point(39, 18)
+        Me.lblHouseholds.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.lblHouseholds.Name = "lblHouseholds"
-        Me.lblHouseholds.Size = New System.Drawing.Size(163, 16)
+        Me.lblHouseholds.Size = New System.Drawing.Size(228, 25)
         Me.lblHouseholds.TabIndex = 7
         Me.lblHouseholds.Text = "Number of households"
         '
         'txtHouseholds
         '
         Me.txtHouseholds.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtHouseholds.Location = New System.Drawing.Point(29, 31)
+        Me.txtHouseholds.Location = New System.Drawing.Point(44, 48)
+        Me.txtHouseholds.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.txtHouseholds.Name = "txtHouseholds"
-        Me.txtHouseholds.Size = New System.Drawing.Size(165, 22)
+        Me.txtHouseholds.Size = New System.Drawing.Size(246, 30)
         Me.txtHouseholds.TabIndex = 8
         '
         'txtDams
         '
         Me.txtDams.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtDams.Location = New System.Drawing.Point(249, 31)
+        Me.txtDams.Location = New System.Drawing.Point(374, 48)
+        Me.txtDams.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.txtDams.Name = "txtDams"
-        Me.txtDams.Size = New System.Drawing.Size(130, 22)
+        Me.txtDams.Size = New System.Drawing.Size(193, 30)
         Me.txtDams.TabIndex = 9
         '
         'txtBoreholes
         '
         Me.txtBoreholes.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtBoreholes.Location = New System.Drawing.Point(429, 31)
+        Me.txtBoreholes.Location = New System.Drawing.Point(644, 48)
+        Me.txtBoreholes.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.txtBoreholes.Name = "txtBoreholes"
-        Me.txtBoreholes.Size = New System.Drawing.Size(158, 22)
+        Me.txtBoreholes.Size = New System.Drawing.Size(235, 30)
         Me.txtBoreholes.TabIndex = 10
         '
         'txtWaterSources
         '
         Me.txtWaterSources.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtWaterSources.Location = New System.Drawing.Point(24, 114)
+        Me.txtWaterSources.Location = New System.Drawing.Point(36, 175)
+        Me.txtWaterSources.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.txtWaterSources.Multiline = True
         Me.txtWaterSources.Name = "txtWaterSources"
-        Me.txtWaterSources.Size = New System.Drawing.Size(206, 215)
+        Me.txtWaterSources.Size = New System.Drawing.Size(307, 329)
         Me.txtWaterSources.TabIndex = 11
         '
         'lblWaterSources
         '
         Me.lblWaterSources.AutoSize = True
         Me.lblWaterSources.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblWaterSources.Location = New System.Drawing.Point(26, 86)
+        Me.lblWaterSources.Location = New System.Drawing.Point(39, 132)
+        Me.lblWaterSources.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.lblWaterSources.Name = "lblWaterSources"
-        Me.lblWaterSources.Size = New System.Drawing.Size(209, 16)
+        Me.lblWaterSources.Size = New System.Drawing.Size(292, 25)
         Me.lblWaterSources.TabIndex = 12
         Me.lblWaterSources.Text = "Dams and Borehole Statuses"
         '
         'txtHouse
         '
         Me.txtHouse.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtHouse.Location = New System.Drawing.Point(281, 143)
+        Me.txtHouse.Location = New System.Drawing.Point(422, 220)
+        Me.txtHouse.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.txtHouse.Multiline = True
         Me.txtHouse.Name = "txtHouse"
-        Me.txtHouse.Size = New System.Drawing.Size(206, 186)
+        Me.txtHouse.Size = New System.Drawing.Size(307, 284)
         Me.txtHouse.TabIndex = 13
         '
         'lblHouse
         '
         Me.lblHouse.AutoSize = True
         Me.lblHouse.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblHouse.Location = New System.Drawing.Point(278, 124)
+        Me.lblHouse.Location = New System.Drawing.Point(417, 191)
+        Me.lblHouse.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.lblHouse.Name = "lblHouse"
-        Me.lblHouse.Size = New System.Drawing.Size(132, 16)
+        Me.lblHouse.Size = New System.Drawing.Size(182, 25)
         Me.lblHouse.TabIndex = 14
         Me.lblHouse.Text = "Household Profile"
         '
+        'txtMaxTapUsage
+        '
+        Me.txtMaxTapUsage.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtMaxTapUsage.Location = New System.Drawing.Point(831, 154)
+        Me.txtMaxTapUsage.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
+        Me.txtMaxTapUsage.Name = "txtMaxTapUsage"
+        Me.txtMaxTapUsage.Size = New System.Drawing.Size(235, 30)
+        Me.txtMaxTapUsage.TabIndex = 15
+        '
+        'lblTapMax
+        '
+        Me.lblTapMax.AutoSize = True
+        Me.lblTapMax.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblTapMax.Location = New System.Drawing.Point(826, 118)
+        Me.lblTapMax.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.lblTapMax.Name = "lblTapMax"
+        Me.lblTapMax.Size = New System.Drawing.Size(216, 25)
+        Me.lblTapMax.TabIndex = 16
+        Me.lblTapMax.Text = "Maximum Tap Usage"
+        '
         'Form1
         '
-        Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
+        Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 20.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(800, 450)
+        Me.ClientSize = New System.Drawing.Size(1200, 692)
+        Me.Controls.Add(Me.lblTapMax)
+        Me.Controls.Add(Me.txtMaxTapUsage)
         Me.Controls.Add(Me.lblHouse)
         Me.Controls.Add(Me.txtHouse)
         Me.Controls.Add(Me.lblWaterSources)
@@ -201,6 +240,7 @@ Partial Class Form1
         Me.Controls.Add(Me.btnUseBorehole)
         Me.Controls.Add(Me.btnHouseWater)
         Me.Controls.Add(Me.btnNewDay)
+        Me.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.Name = "Form1"
         Me.Text = "Form1"
         Me.ResumeLayout(False)
@@ -223,4 +263,6 @@ Partial Class Form1
     Friend WithEvents lblWaterSources As Label
     Friend WithEvents txtHouse As TextBox
     Friend WithEvents lblHouse As Label
+    Friend WithEvents txtMaxTapUsage As TextBox
+    Friend WithEvents lblTapMax As Label
 End Class

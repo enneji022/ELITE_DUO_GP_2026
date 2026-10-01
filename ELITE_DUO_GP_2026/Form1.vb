@@ -11,10 +11,40 @@ Option Infer Off
 ' **************************************************************************************************
 
 Public Class Form1
-    Private NumberOfHouseholds, NumberOfDams, NumberOfBoreholes As Integer
+    Private NumberOfHouseholds, NumberOfDams, NumberOfBoreholes, NumberOfWaterSources As Integer
+    Private ProgramInitialised As Boolean = False
     Private CurrentDay As Integer
     Private Households() As Household
     Private Dams() As Dam
     Private Boreholes() As Borehole
     Private WaterSources() As WaterSource
+
+    Private Sub DisplayWaterSourceProfiles()
+        'Implement This
+    End Sub
+
+    Private Sub btnInit_Click(sender As Object, e As EventArgs) Handles btnInit.Click
+        NumberOfHouseholds = CInt(txtHouseholds.Text)
+        NumberOfDams = CInt(txtDams.Text)
+        NumberOfBoreholes = CInt(txtBoreholes.Text)
+
+        If NumberOfBoreholes > 0 And NumberOfHouseholds > 0 And NumberOfDams > 0 And Not ProgramInitialised Then
+            ReDim Households(NumberOfHouseholds)
+            ReDim Dams(NumberOfDams)
+            ReDim Boreholes(NumberOfBoreholes)
+            NumberOfWaterSources = NumberOfDams + NumberOfBoreholes
+
+            ProgramInitialised = True
+            CurrentDay = 1
+            MsgBox("Program Initialised Successfully!")
+        End If
+    End Sub
+
+    Private Sub btnNewDay_Click(sender As Object, e As EventArgs) Handles btnNewDay.Click
+        If CurrentDay = 7 Then
+            CurrentDay = 1
+        Else
+            CurrentDay += 1
+        End If
+    End Sub
 End Class
