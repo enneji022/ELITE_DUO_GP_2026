@@ -11,11 +11,11 @@ Option Infer Off
 ' **************************************************************************************************
 
 Public Class Form1
-    Private NumberOfHouseholds, NumberOfDams, NumberOfBoreholes, NumberOfWaterSources As Integer
+    Private NumberOfHouseholds, NumberOfBoreholes, NumberOfWaterSources As Integer
     Private ProgramInitialised As Boolean = False
     Private CurrentDay As Integer
     Private Households() As Household
-    Private Dams() As Dam
+    Private Dams As Dam
     Private Boreholes() As Borehole
     Private WaterSources() As WaterSource
 
@@ -25,14 +25,12 @@ Public Class Form1
 
     Private Sub btnInit_Click(sender As Object, e As EventArgs) Handles btnInit.Click
         NumberOfHouseholds = CInt(txtHouseholds.Text)
-        NumberOfDams = CInt(txtDams.Text)
         NumberOfBoreholes = CInt(txtBoreholes.Text)
 
-        If NumberOfBoreholes > 0 And NumberOfHouseholds > 0 And NumberOfDams > 0 And Not ProgramInitialised Then
+        If NumberOfBoreholes > 0 And NumberOfHouseholds > 0 And Not ProgramInitialised Then
             ReDim Households(NumberOfHouseholds)
-            ReDim Dams(NumberOfDams)
             ReDim Boreholes(NumberOfBoreholes)
-            NumberOfWaterSources = NumberOfDams + NumberOfBoreholes
+            NumberOfWaterSources = NumberOfBoreholes
 
             ProgramInitialised = True
             CurrentDay = 1
