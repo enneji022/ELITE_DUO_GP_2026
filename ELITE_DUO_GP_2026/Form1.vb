@@ -89,6 +89,18 @@ Public Class Form1
         End If
     End Sub
 
+    Private Sub lblDamMax_Click(sender As Object, e As EventArgs) Handles lblDamMax.Click
+
+    End Sub
+
+    Private Sub lblBoreholes_Click(sender As Object, e As EventArgs) Handles lblBoreholes.Click
+
+    End Sub
+
+    Private Sub lblHouse_Click(sender As Object, e As EventArgs) Handles lblHouse.Click
+
+    End Sub
+
     Private Sub btnUseBorehole_Click(sender As Object, e As EventArgs) Handles btnUseBorehole.Click
         Dim HouseChoice As Integer = CInt(InputBox("Enter the House Choice. (1-" & Households.Length - 1 & ")"))
         Dim BoreholeChoice As Integer = CInt(InputBox("Enter the Borehole Choice. (1-" & Boreholes.Length - 1 & ")"))
