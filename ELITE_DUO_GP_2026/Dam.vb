@@ -1,29 +1,67 @@
-﻿Public Class Dam
+﻿Option Strict On
+Option Explicit On
+Option Infer Off
+
+' ************************************************************************************************** 
+' Team Name: ELITE DUO
+' Team Member 1 Details: Sibuyi, EL 226047812 
+' Team Member 2 Details: Banda, I 226019541
+' Practical: Group Project 
+' Class name: Dam
+' **************************************************************************************************
+Public Class Dam
     Inherits WaterSource
+    Implements IUsageLimitable
+    Implements IRefillable
 
     Private _MaxUsableAmount As Integer
+    Private _MaxCapacity As Integer
+    Private _WaterFlowRate As Integer
 
-    Public Sub New(SourceID As Integer, IDCounter As Integer, AvailAmount As Integer, MaxUse As Integer)
-        MyBase.New(SourceID, IDCounter, AvailAmount)
+    Public Sub New(AvailAmount As Integer, MaxCapacity As Integer, MaxUse As Integer, WaterFlowRate As Integer)
+        MyBase.New(AvailAmount)
+        _MaxCapacity = MaxCapacity
+        _WaterFlowRate = WaterFlowRate
         _MaxUsableAmount = MaxUse
     End Sub
-    Public Overrides Sub ReportFault()
 
+    Public ReadOnly Property MaxUsableAmount As Integer Implements IUsageLimitable.MaxUsableAmount
+        Get
+            Return _MaxUsableAmount
+        End Get
+    End Property
+
+    Public ReadOnly Property WaterFlowRate As Integer
+        Get
+            Return _WaterFlowRate
+        End Get
+    End Property
+
+    Public ReadOnly Property MaxCapacity As Integer
+        Get
+            Return _MaxCapacity
+        End Get
+    End Property
+
+    Public Overrides Function CheckAvailability() As String
+        Dim Availability As String
+        Availability = "Dam ID: " & Me.SourceID & vbNewLine &
+                        "Max capacity: " & _MaxCapacity & vbNewLine &
+                        "Available amount: " & Me.AvailbleAmount & vbNewLine
+        Return Availability
+    End Function
+
+    Public Function CanUseMore(Amount As Integer) As Boolean Implements IUsageLimitable.CanUseMore
+        If Amount <= Me.AvailableAmount Then
+            Return True
+        End If
+        Return False
+    End Function
+
+    Public Overrides Sub UseWater(Amount As Integer)
+        If CanUseMore(Amount) Then
+            AvailableAmount -= Amount
+        End If
     End Sub
 
-    Public Overrides Sub FixFault()
-
-    End Sub
-
-    Public Overrides Function IsFaulty() As Boolean
-
-    End Function
-
-    Public Overrides Function CheckAvailability() As Integer
-
-    End Function
-
-    Public Overrides Function GetStatus() As String
-
-    End Function
 End Class

@@ -12,5 +12,5 @@ Option Infer Off
 
 Public Interface IUsageLimitable
     ReadOnly Property MaxUsableAmount As Integer
-    Function CanUseMore() As Boolean
+    Function CanUseMore(Amount As Integer) As Boolean
 End Interface

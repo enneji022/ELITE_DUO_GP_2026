@@ -7,7 +7,7 @@ Option Infer Off
 ' Team Member 1 Details: Sibuyi, EL 226047812 
 ' Team Member 2 Details: Banda, I 226019541
 ' Practical: Group Project 
-' Class name: IUsageLimitable
+' Class name: Household
 ' **************************************************************************************************
 
 Public Class Household
@@ -15,14 +15,12 @@ Public Class Household
     Private Shared IDCounter As Integer
     Private _Tap As Tap
     Private _AmountUsedInTaps As Integer
-    Private _AMountUsedInBoreholes As Integer
 
     Public Sub New(Tap As Tap)
         IDCounter += 1
         _HouseholdID = IDCounter
         _Tap = Tap
         _AmountUsedInTaps = 0
-        _AMountUsedInBoreholes = 0
     End Sub
 
     Public ReadOnly Property HouseholdID As Integer
@@ -49,14 +47,6 @@ Public Class Household
         End Set
     End Property
 
-    Public Property AmountUsedInBoreholes As Integer
-        Get
-            Return _AMountUsedInBoreholes
-        End Get
-        Set(value As Integer)
-            _AMountUsedInBoreholes = value
-        End Set
-    End Property
 
     'Returns True if household can still use the specified amount of water in their tap
     Private Function CanUseMoreWater(Amount As Integer) As Boolean
@@ -66,11 +56,12 @@ Public Class Household
     Public Sub UseTapWater(ByVal Amount As Integer)
         If CanUseMoreWater(Amount) Then
             _AmountUsedInTaps += Amount
+            _Tap.UseWater(Amount)
         End If
     End Sub
 
     Public Sub UseBoreholeWater(Borehole As Borehole, Amount As Integer)
-        'Don't forget to implement this function
+        Borehole.UseWater(Amount)
     End Sub
 
     Public Function DisplayProfile() As String

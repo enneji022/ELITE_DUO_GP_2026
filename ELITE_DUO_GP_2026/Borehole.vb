@@ -1,26 +1,38 @@
-﻿Public Class Borehole
+﻿Option Strict On
+Option Explicit On
+Option Infer Off
+
+' ************************************************************************************************** 
+' Team Name: ELITE DUO
+' Team Member 1 Details: Sibuyi, EL 226047812 
+' Team Member 2 Details: Banda, I 226019541
+' Practical: Group Project 
+' Class name: Borehole
+' **************************************************************************************************
+Public Class Borehole
     Inherits WaterSource
+    Implements IRefillable
 
-    Public Sub New(SourceID As Integer, IDCounter As Integer, AvailAmount As Integer)
-        MyBase.New(SourceID, IDCounter, AvailAmount)
-    End Sub
-    Public Overrides Sub ReportFault()
-
-    End Sub
-
-    Public Overrides Sub FixFault()
-
+    Private _RefillRate As Integer
+    Public Sub New(AvailAmount As Integer, RefillRate As Integer)
+        MyBase.New(AvailAmount)
+        _RefillRate = RefillRate
     End Sub
 
-    Public Overrides Function IsFaulty() As Boolean
+    Public ReadOnly Property RefillRate As Integer
+        Get
+            Return _RefillRate
+        End Get
+    End Property
 
-    End Function
+    Public Overrides Sub UseWater(Amount As Integer)
+        If Amount <= Me.AvailableAmount Then
+            AvailableAmount -= Amount
+        End If
+    End Sub
 
-    Public Overrides Function CheckAvailability() As Integer
-
-    End Function
-
-    Public Overrides Function GetStatus() As String
-
+    Public Overrides Function CheckAvailability() As String
+        Return "Borehole ID: " & Me.SourceID & vbNewLine &
+                "Available Amount: " & Me.AvailableAmount & vbNewLine
     End Function
 End Class
