@@ -26,8 +26,8 @@ Public Class Borehole
     End Property
 
     Public Overrides Sub UseWater(Amount As Integer)
-        If Amount <= Me.AvailableAmount Then
-            AvailableAmount -= Amount
+        If CanUseMore(Amount) Then
+            AvailableAmount -= CInt(Amount * (5 / 100))
         End If
     End Sub
 
@@ -37,11 +37,15 @@ Public Class Borehole
     End Function
 
     Public Sub RefillWater() Implements IRefillable.RefillWater
-        '
+        Me.AvailableAmount = _RefillRate
     End Sub
 
-    Public Overrides Function CanUseMore(Amount As Integer) As Boolean
-        '
+    Protected Overrides Function CanUseMore(Amount As Integer) As Boolean
+        If Amount <= Me.AvailableAmount Then
+            Return True
+        End If
+
+        Return False
     End Function
 
 End Class

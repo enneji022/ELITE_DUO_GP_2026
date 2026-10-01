@@ -201,7 +201,7 @@ Partial Class Form1
         'txtDamMax
         '
         Me.txtDamMax.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.txtDamMax.Location = New System.Drawing.Point(839, 83)
+        Me.txtDamMax.Location = New System.Drawing.Point(862, 101)
         Me.txtDamMax.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
         Me.txtDamMax.Name = "txtDamMax"
         Me.txtDamMax.Size = New System.Drawing.Size(235, 30)
@@ -211,12 +211,12 @@ Partial Class Form1
         '
         Me.lblDamMax.AutoSize = True
         Me.lblDamMax.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
-        Me.lblDamMax.Location = New System.Drawing.Point(609, 83)
+        Me.lblDamMax.Location = New System.Drawing.Point(691, 104)
         Me.lblDamMax.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
         Me.lblDamMax.Name = "lblDamMax"
-        Me.lblDamMax.Size = New System.Drawing.Size(222, 25)
+        Me.lblDamMax.Size = New System.Drawing.Size(147, 25)
         Me.lblDamMax.TabIndex = 18
-        Me.lblDamMax.Text = "Maximum Dam Usage"
+        Me.lblDamMax.Text = "Dam Capacity"
         '
         'Form1
         '

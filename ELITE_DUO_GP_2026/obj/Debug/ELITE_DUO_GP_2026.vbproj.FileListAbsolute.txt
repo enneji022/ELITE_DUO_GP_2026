@@ -3,3 +3,10 @@ C:\Users\Cash X\OneDrive - University of Johannesburg\1B\INFORMTICS_1B\PRACTICAL
 C:\Users\Cash X\OneDrive - University of Johannesburg\1B\INFORMTICS_1B\PRACTICALS\ELITE_DUO_GP_2026\ELITE_DUO_GP_2026\obj\Debug\ELITE_DUO_GP_2026.Resources.resources
 C:\Users\Cash X\OneDrive - University of Johannesburg\1B\INFORMTICS_1B\PRACTICALS\ELITE_DUO_GP_2026\ELITE_DUO_GP_2026\obj\Debug\ELITE_DUO_GP_2026.vbproj.GenerateResource.cache
 C:\Users\Cash X\OneDrive - University of Johannesburg\1B\INFORMTICS_1B\PRACTICALS\ELITE_DUO_GP_2026\ELITE_DUO_GP_2026\obj\Debug\ELITE_DUO_GP_2026.vbproj.CoreCompileInputs.cache
+C:\Users\Cash X\OneDrive - University of Johannesburg\1B\INFORMTICS_1B\PRACTICALS\ELITE_DUO_GP_2026\ELITE_DUO_GP_2026\bin\Debug\ELITE_DUO_GP_2026.exe.config
+C:\Users\Cash X\OneDrive - University of Johannesburg\1B\INFORMTICS_1B\PRACTICALS\ELITE_DUO_GP_2026\ELITE_DUO_GP_2026\bin\Debug\ELITE_DUO_GP_2026.exe
+C:\Users\Cash X\OneDrive - University of Johannesburg\1B\INFORMTICS_1B\PRACTICALS\ELITE_DUO_GP_2026\ELITE_DUO_GP_2026\bin\Debug\ELITE_DUO_GP_2026.pdb
+C:\Users\Cash X\OneDrive - University of Johannesburg\1B\INFORMTICS_1B\PRACTICALS\ELITE_DUO_GP_2026\ELITE_DUO_GP_2026\bin\Debug\ELITE_DUO_GP_2026.xml
+C:\Users\Cash X\OneDrive - University of Johannesburg\1B\INFORMTICS_1B\PRACTICALS\ELITE_DUO_GP_2026\ELITE_DUO_GP_2026\obj\Debug\ELITE_DUO_GP_2026.exe
+C:\Users\Cash X\OneDrive - University of Johannesburg\1B\INFORMTICS_1B\PRACTICALS\ELITE_DUO_GP_2026\ELITE_DUO_GP_2026\obj\Debug\ELITE_DUO_GP_2026.xml
+C:\Users\Cash X\OneDrive - University of Johannesburg\1B\INFORMTICS_1B\PRACTICALS\ELITE_DUO_GP_2026\ELITE_DUO_GP_2026\obj\Debug\ELITE_DUO_GP_2026.pdb

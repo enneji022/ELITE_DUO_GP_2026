@@ -17,11 +17,11 @@ Public Class Dam
     Private _MaxCapacity As Integer
     Private _WaterFlowRate As Integer
 
-    Public Sub New(AvailAmount As Integer, MaxCapacity As Integer, MaxUse As Integer, WaterFlowRate As Integer)
-        MyBase.New(AvailAmount)
+    Public Sub New(MaxCapacity As Integer)
+        MyBase.New(MaxCapacity)
         _MaxCapacity = MaxCapacity
-        _WaterFlowRate = WaterFlowRate
-        _MaxUsableAmount = MaxUse
+        _WaterFlowRate = CInt(MaxCapacity * (5 / 100))
+        _MaxUsableAmount = CInt(MaxCapacity * (90 / 100))
     End Sub
 
     Public ReadOnly Property MaxUsableAmount As Integer
@@ -50,7 +50,7 @@ Public Class Dam
         Return Availability
     End Function
 
-    Public Overrides Function CanUseMore(Amount As Integer) As Boolean
+    Protected Overrides Function CanUseMore(Amount As Integer) As Boolean
         If Amount <= Me.AvailableAmount Then
             Return True
         End If
@@ -59,11 +59,11 @@ Public Class Dam
 
     Public Overrides Sub UseWater(Amount As Integer)
         If CanUseMore(Amount) Then
-            AvailableAmount -= Amount
+            Me.AvailableAmount -= Amount
         End If
     End Sub
 
     Public Sub RefillWater() Implements IRefillable.RefillWater
-        '
+        Me.AvailableAmount = _MaxCapacity
     End Sub
 End Class

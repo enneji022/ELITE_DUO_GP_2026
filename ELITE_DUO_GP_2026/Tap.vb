@@ -18,6 +18,7 @@ Public Class Tap
 
     Public Sub New(AvailAmount As Integer, dam As Dam)
         MyBase.New(AvailAmount)
+        _MaxUsableAmount = AvailAmount
         _Dam = dam
     End Sub
 
@@ -39,6 +40,7 @@ Public Class Tap
     Public Overrides Sub UseWater(Amount As Integer)
         If CanUseMore(Amount) Then
             AvailableAmount -= Amount
+            _Dam.AvailableAmount -= Amount
         End If
     End Sub
 
@@ -48,7 +50,7 @@ Public Class Tap
 
     End Function
 
-    Public Overrides Function CanUseMore(Amount As Integer) As Boolean
+    Protected Overrides Function CanUseMore(Amount As Integer) As Boolean
         If Amount <= Me.AvailableAmount Then
             Return True
         End If

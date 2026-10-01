@@ -40,6 +40,6 @@ Public MustInherit Class WaterSource
 
     Public MustOverride Sub UseWater(Amount As Integer)
 
-    Public MustOverride Function CanUseMore(Amount As Integer) As Boolean
+    Protected MustOverride Function CanUseMore(Amount As Integer) As Boolean
 
 End Class
