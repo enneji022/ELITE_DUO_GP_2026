@@ -37,6 +37,8 @@ Partial Class Form1
         Me.lblHouse = New System.Windows.Forms.Label()
         Me.txtMaxTapUsage = New System.Windows.Forms.TextBox()
         Me.lblTapMax = New System.Windows.Forms.Label()
+        Me.txtDamMax = New System.Windows.Forms.TextBox()
+        Me.lblDamMax = New System.Windows.Forms.Label()
         Me.SuspendLayout()
         '
         'btnNewDay
@@ -196,11 +198,33 @@ Partial Class Form1
         Me.lblTapMax.TabIndex = 16
         Me.lblTapMax.Text = "Maximum Tap Usage"
         '
+        'txtDamMax
+        '
+        Me.txtDamMax.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.txtDamMax.Location = New System.Drawing.Point(614, 125)
+        Me.txtDamMax.Margin = New System.Windows.Forms.Padding(4, 5, 4, 5)
+        Me.txtDamMax.Name = "txtDamMax"
+        Me.txtDamMax.Size = New System.Drawing.Size(235, 30)
+        Me.txtDamMax.TabIndex = 17
+        '
+        'lblDamMax
+        '
+        Me.lblDamMax.AutoSize = True
+        Me.lblDamMax.Font = New System.Drawing.Font("Microsoft Sans Serif", 9.75!, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, CType(0, Byte))
+        Me.lblDamMax.Location = New System.Drawing.Point(609, 83)
+        Me.lblDamMax.Margin = New System.Windows.Forms.Padding(4, 0, 4, 0)
+        Me.lblDamMax.Name = "lblDamMax"
+        Me.lblDamMax.Size = New System.Drawing.Size(222, 25)
+        Me.lblDamMax.TabIndex = 18
+        Me.lblDamMax.Text = "Maximum Dam Usage"
+        '
         'Form1
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(9.0!, 20.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
         Me.ClientSize = New System.Drawing.Size(1200, 692)
+        Me.Controls.Add(Me.lblDamMax)
+        Me.Controls.Add(Me.txtDamMax)
         Me.Controls.Add(Me.lblTapMax)
         Me.Controls.Add(Me.txtMaxTapUsage)
         Me.Controls.Add(Me.lblHouse)
@@ -239,4 +263,6 @@ Partial Class Form1
     Friend WithEvents lblHouse As Label
     Friend WithEvents txtMaxTapUsage As TextBox
     Friend WithEvents lblTapMax As Label
+    Friend WithEvents txtDamMax As TextBox
+    Friend WithEvents lblDamMax As Label
 End Class

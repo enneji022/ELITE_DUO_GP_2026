@@ -14,8 +14,8 @@ Public Class Borehole
     Implements IRefillable
 
     Private _RefillRate As Integer
-    Public Sub New(AvailAmount As Integer, RefillRate As Integer)
-        MyBase.New(AvailAmount)
+    Public Sub New(RefillRate As Integer)
+        MyBase.New(RefillRate)
         _RefillRate = RefillRate
     End Sub
 

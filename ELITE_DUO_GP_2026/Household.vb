@@ -16,11 +16,11 @@ Public Class Household
     Private _Tap As Tap
     Private _AmountUsedInTaps As Integer
 
-    Public Sub New(Tap As Tap)
+    Public Sub New(AvailableAmount As Integer, Dam As Dam)
         IDCounter += 1
         _HouseholdID = IDCounter
-        _Tap = Tap
         _AmountUsedInTaps = 0
+        _Tap = New Tap(AvailableAmount, Dam)
     End Sub
 
     Public ReadOnly Property HouseholdID As Integer
