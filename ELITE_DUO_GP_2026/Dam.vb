@@ -11,7 +11,6 @@ Option Infer Off
 ' **************************************************************************************************
 Public Class Dam
     Inherits WaterSource
-    Implements IUsageLimitable
     Implements IRefillable
 
     Private _MaxUsableAmount As Integer
@@ -25,7 +24,7 @@ Public Class Dam
         _MaxUsableAmount = MaxUse
     End Sub
 
-    Public ReadOnly Property MaxUsableAmount As Integer Implements IUsageLimitable.MaxUsableAmount
+    Public ReadOnly Property MaxUsableAmount As Integer
         Get
             Return _MaxUsableAmount
         End Get
@@ -51,7 +50,7 @@ Public Class Dam
         Return Availability
     End Function
 
-    Public Function CanUseMore(Amount As Integer) As Boolean Implements IUsageLimitable.CanUseMore
+    Public Overrides Function CanUseMore(Amount As Integer) As Boolean
         If Amount <= Me.AvailableAmount Then
             Return True
         End If
@@ -64,4 +63,7 @@ Public Class Dam
         End If
     End Sub
 
+    Public Sub RefillWater() Implements IRefillable.RefillWater
+        '
+    End Sub
 End Class

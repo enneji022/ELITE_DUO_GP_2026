@@ -12,7 +12,6 @@ Option Infer Off
 
 Public Class Tap
     Inherits WaterSource
-    Implements IUsageLimitable
 
     Private _Dam As Dam
     Private Shared _MaxUsableAmount As Integer
@@ -31,7 +30,7 @@ Public Class Tap
         End Set
     End Property
 
-    Public ReadOnly Property MaxUsableAmount As Integer Implements IUsageLimitable.MaxUsableAmount
+    Public ReadOnly Property MaxUsableAmount As Integer
         Get
             Return _MaxUsableAmount
         End Get
@@ -49,7 +48,7 @@ Public Class Tap
 
     End Function
 
-    Public Function CanUseMore(Amount As Integer) As Boolean Implements IUsageLimitable.CanUseMore
+    Public Overrides Function CanUseMore(Amount As Integer) As Boolean
         If Amount <= Me.AvailableAmount Then
             Return True
         End If

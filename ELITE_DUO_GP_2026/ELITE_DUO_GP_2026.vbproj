@@ -84,7 +84,6 @@
     </Compile>
     <Compile Include="Household.vb" />
     <Compile Include="IRefillable.vb" />
-    <Compile Include="IUsageLimitable.vb" />
     <Compile Include="My Project\AssemblyInfo.vb" />
     <Compile Include="My Project\Application.Designer.vb">
       <AutoGen>True</AutoGen>

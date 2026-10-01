@@ -35,4 +35,13 @@ Public Class Borehole
         Return "Borehole ID: " & Me.SourceID & vbNewLine &
                 "Available Amount: " & Me.AvailableAmount & vbNewLine
     End Function
+
+    Public Sub RefillWater() Implements IRefillable.RefillWater
+        '
+    End Sub
+
+    Public Overrides Function CanUseMore(Amount As Integer) As Boolean
+        '
+    End Function
+
 End Class
